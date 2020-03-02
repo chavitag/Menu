@@ -1,23 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Menu;
 
 import DynamicEnum.EnumElement;
 
 /**
  *
- * @author xavi
+ * O procesamento dos elementos do menú produce un Boolean (true saír, false continuar) 
+ * e recibe un OptionElement, que sería a opción elexida
  */
-public interface OptionElement extends EnumElement <Boolean,EnumElement> {
+public interface OptionElement extends EnumElement <Boolean,OptionElement> {
     public String getTitle();
     
-    public Boolean doOption(EnumElement op);
+    public Boolean doOption(OptionElement op);
     
     @Override
-    public default Boolean doWith(EnumElement el) {
+    public default String name() {
+        return getTitle();
+    }
+    
+    @Override
+    public default Boolean doWith(OptionElement el) {
         return doOption(el);
     }
 }

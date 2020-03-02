@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @param <T> Clase dos enums que permitiremos agregar. Deben extender EnumElement 
  */
 public class DynamicEnum <E extends EnumElement,T extends Class <? extends EnumElement>> {
-    private final ArrayList <E> types=new ArrayList <>();
+    protected final ArrayList <E> types=new ArrayList <>();
         
     public DynamicEnum() {  }
      
@@ -27,6 +27,14 @@ public class DynamicEnum <E extends EnumElement,T extends Class <? extends EnumE
         */
         E[] values=(E[])enumclass.getEnumConstants();
         if (values==null) throw new IllegalArgumentException("Is nota a Enum");        
+        addElements(values);
+        return types;
+    }
+    
+    public ArrayList <E> setTypes(T enumclass) {
+        E[] values=(E[])enumclass.getEnumConstants();
+        if (values==null) throw new IllegalArgumentException("Is nota a Enum");
+        types.clear();
         addElements(values);
         return types;
     }

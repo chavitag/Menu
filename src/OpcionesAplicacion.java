@@ -3,9 +3,15 @@ import DynamicEnum.EnumElement;
 import Menu.OptionElement;
 
 public enum OpcionesAplicacion implements OptionElement {
-    ALTAFILM("1.- Gardar Film",new SaveFilm()),
-    CONSULTAFILM("2.- Consultar Film",new SearchFilm()),
-    LISTADOFILMS("3.- Listar Films",new ListFilms()),
+    ALTAFILM("1.- Gardar Film",new OpcionGardar()),
+    CONSULTAFILM("2.- Consultar Film",new OpcionConsultar()),
+    LISTADOFILMS("3.- Listar Films") {
+        @Override
+        public Boolean doWith(OptionElement el) {
+            System.out.println("Opcion Listar");
+            return false;
+        }
+    },
     SAIR("4.- Sair");
 
     private final String title;
@@ -16,7 +22,7 @@ public enum OpcionesAplicacion implements OptionElement {
         this.option=null;
     }    
     
-    OpcionesAplicacion(String title,EnumElement option) {
+    OpcionesAplicacion(String title,OptionElement option) {
         this.title=title;
         this.option=option;
     }
@@ -27,7 +33,7 @@ public enum OpcionesAplicacion implements OptionElement {
     }
 
     @Override
-    public Boolean doOption(EnumElement op) {
+    public Boolean doOption(OptionElement op) {
         if (option!=null) return (Boolean)option.doWith(op);
         return true;
     }

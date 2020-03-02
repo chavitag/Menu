@@ -2,9 +2,7 @@ package DynamicEnum;
 
 public interface EnumElement <T,P> {
     // Devolve o nome do enum. 
-    public default String name() {
-        return "";
-    };   
+    public String name();
 
     /**
      * Os elementos incluídos no Enum deben dispoñer dun método doWith.

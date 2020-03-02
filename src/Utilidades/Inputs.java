@@ -1,19 +1,12 @@
-package Menu;
+package Utilidades;
 
-import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
 import java.util.Scanner;
 
-/**
- * Utils de entrada de datos e visualización
- * @version 1.0
- * @since 1.0
-*/
-public class Utils {
-    private static final Scanner SCN=new Scanner(System.in);    // Para entrada de datos
+public class Inputs {
+private static final Scanner SCN=new Scanner(System.in);    // Para entrada de datos
     
     /**
      * Lee de teclado un int entre min e max incluídos.
@@ -189,45 +182,5 @@ public class Utils {
             }
         } while(letra==0);
         return letra;
-    }
-    
-    /**
-     * Amosa en Pantalla os elementos dun ArrayList
-     * @param al - ArrayList
-     */
-    public static void showArray(Collection al) {
-        for(Object obj: al) {
-            System.out.println("\t"+obj);
-        }
-    }  
-    
-    /**
-     * Borra a pantalla
-     */
-    public final static void clearConsole() {
-        System.out.println("\n\n\n");
-        try {
-            final String os = System.getProperty("os.name");
-
-            if (os.contains("Windows")) Runtime.getRuntime().exec("cls");
-            else                        Runtime.getRuntime().exec("clear");
-        } catch (final Exception e)   {}
-    }
-    
-    /**
-     * Devolve un obxecto da clase "type" chamando ao constructor por defecto
-     * @param type Clase da que desexamos un obxecto
-     * @return Obxecto da clase type
-     * @throws IllegalArgumentException  Non se conseguiu crear o obxecto. O máis
-     * común é porque a clase non ten un constructor por defecto.
-     */
-    public static Object getInstance(Class <?> type) {
-        try {
-            if (type!=null) return type.getDeclaredConstructor().newInstance();
-            return null;
-        } catch (NoSuchMethodException | SecurityException | InstantiationException 
-                | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-            throw new IllegalArgumentException(ex.getMessage()+" (And Must have a default constructor)");
-        }    
-    }
+    }    
 }
