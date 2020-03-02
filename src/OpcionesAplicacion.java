@@ -22,7 +22,7 @@ public enum OpcionesAplicacion implements OptionElement {
         this.option=null;
     }    
     
-    OpcionesAplicacion(String title,OptionElement option) {
+    OpcionesAplicacion(String title,EnumElement option) {
         this.title=title;
         this.option=option;
     }

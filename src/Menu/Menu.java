@@ -31,7 +31,7 @@ public class Menu extends DynamicEnum <OptionElement,Class <? extends OptionElem
         do {
             System.out.println(title);
             for(OptionElement opm: options) {
-                System.out.println(opm.name());
+                System.out.println(opm.getTitle());
             }
             try {
                 op=Inputs.getInt("Elixe Opcion: ", 1, options.size())-1;

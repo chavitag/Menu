@@ -1,20 +1,15 @@
 
+import DynamicEnum.EnumElement;
 import Menu.OptionElement;
 
-public class OpcionGardar implements OptionElement {
+public class OpcionGardar implements EnumElement <Boolean,OptionElement> {
 
     public OpcionGardar() {
     }
 
     @Override
-    public String getTitle() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Boolean doOption(OptionElement op) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
+    public Boolean doWith(OptionElement op) {
+        System.out.println("Opción Gardar");
+        return false;
+    }   
 }
