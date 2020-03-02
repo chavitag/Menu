@@ -1,7 +1,6 @@
 package MenusAplicacion;
 
 
-import MenusAplicacion.OutroMenuSimple;
 import menu.OptionElement;
 
 /**
