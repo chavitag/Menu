@@ -1,12 +1,13 @@
-package MenusAplicacion;
+package MenuPrincipal;
 
 
-import Menu.OptionElement;
+import MenuPrincipal.MenuPrincipal;
+import menu.OptionElement;
 
 /**
  * Clase que se encarga de xestionar a Opción Consultar do Menú Principal.
  */
-public class OpcionConsultar implements OptionElement <MenuPrincipal> {
+class OpcionConsultar implements OptionElement <MenuPrincipal> {
     /**
      * Comportamento de Consultar. Recibe o OptionElement por si queremos
      * xestionar varios elementos do menú con este método.

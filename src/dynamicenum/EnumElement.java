@@ -1,4 +1,4 @@
-package DynamicEnum;
+package dynamicenum;
 
 public interface EnumElement <T,P> {
     // Devolve o nome do enum. 

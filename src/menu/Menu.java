@@ -1,7 +1,7 @@
-package Menu;
+package menu;
 
-import DynamicEnum.DynamicEnum;
-import Utilidades.Inputs;
+import dynamicenum.DynamicEnum;
+import utilidades.Inputs;
 import java.util.List;
 
 /**

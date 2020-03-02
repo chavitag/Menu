@@ -1,4 +1,4 @@
-package DynamicEnum;
+package dynamicenum;
 
 import java.util.ArrayList;
 /**

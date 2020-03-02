@@ -1,7 +1,7 @@
-package MenusAplicacion;
+package MenuSimple;
 
 
-import Menu.OptionElement;
+import menu.OptionElement;
 
 /**
  * Outro xeito de implementar un menú.

@@ -1,6 +1,6 @@
-package Menu;
+package menu;
 
-import DynamicEnum.EnumElement;
+import dynamicenum.EnumElement;
 
 /**
  *

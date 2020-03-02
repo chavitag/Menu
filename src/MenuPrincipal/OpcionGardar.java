@@ -1,12 +1,13 @@
-package MenusAplicacion;
+package MenuPrincipal;
 
 
-import Menu.OptionElement;
+import MenuPrincipal.MenuPrincipal;
+import menu.OptionElement;
 
 /**
  * Clase que se encarga de xestionar a Opción Gardar do Menú Principal.
  */
-public class OpcionGardar implements OptionElement <MenuPrincipal> {
+class OpcionGardar implements OptionElement <MenuPrincipal> {
     /**
      * Comportamento de Gardar. Recibe o OptionElement por si queremos
      * xestionar varios elementos do menú con este método.

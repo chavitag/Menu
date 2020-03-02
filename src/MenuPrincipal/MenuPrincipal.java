@@ -1,7 +1,7 @@
-package MenusAplicacion;
+package MenuPrincipal;
 
 
-import Menu.OptionElement;
+import menu.OptionElement;
 
 /**
  * Exemplo de Menu.

@@ -2,12 +2,12 @@ package MenusAplicacion;
 
 
 import MenusAplicacion.OutroMenuSimple;
-import Menu.OptionElement;
+import menu.OptionElement;
 
 /**
  * Clase que se encarga de xestionar OutroMenuSimple ao completo
  */
-public class XestionaMenu implements OptionElement <OutroMenuSimple> {
+class XestionaMenu implements OptionElement <OutroMenuSimple> {
 
     @Override
     public Boolean doOption(OutroMenuSimple op) {

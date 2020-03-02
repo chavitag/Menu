@@ -1,8 +1,8 @@
 
-import MenusAplicacion.MenuSimple;
+import MenuSimple.MenuSimple;
 import MenusAplicacion.OutroMenuSimple;
-import MenusAplicacion.MenuPrincipal;
-import Menu.Menu;
+import MenuPrincipal.MenuPrincipal;
+import menu.Menu;
 
 /**
  * Programa de Demostración do Menu. Como vemos podemos instanciar o Menu
