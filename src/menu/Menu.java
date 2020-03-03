@@ -16,7 +16,7 @@ import java.util.List;
  * indicado en DynamicEnum. No DynamicEnum  E será OptionElement e T será
  * calqueira clase que implemente o interface OptionElement
  */
-public class Menu extends DynamicEnum <OptionElement,Class <? extends OptionElement>> {
+public class Menu extends DynamicEnum <OptionElement> {
     private String title; // Título do Menu
     
     /**

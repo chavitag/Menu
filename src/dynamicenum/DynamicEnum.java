@@ -3,10 +3,9 @@ package dynamicenum;
 import java.util.ArrayList;
 /**
  * Permite almacenar e recuperar Enum que implementen EnumElement
- * @param <E> Tipo de Enums a almacenar no ArrayList. Debe ser un enum que implemente EnumElement
- * @param <T> Clase dos enums que permitiremos agregar. ser un Class de un enum que implemente EnumElement 
+ * @param <E> Tipo de Enums a almacenar no ArrayList. Debe ser un enum que implemente EnumElement 
  */
-public class DynamicEnum <E extends EnumElement,T extends Class <? extends E>> {
+public class DynamicEnum <E extends EnumElement> {
     protected final ArrayList <E> types=new ArrayList <>();
         
     public DynamicEnum() {  }
@@ -18,7 +17,7 @@ public class DynamicEnum <E extends EnumElement,T extends Class <? extends E>> {
      * Esta clase debe ser unha un enum que implemente EnumElement
      * @return Array con todos os elementos en types
      */
-    public ArrayList <E> addElements(T enumclass) {
+    public ArrayList <E> addElements(Class <? extends E> enumclass) {
         /*  a clase java.lang.Class ten o método getEnumConstants() que devolve un 
             array cos elementos do enum, ou null si a clase non corresponde cun Enum
         
@@ -38,7 +37,7 @@ public class DynamicEnum <E extends EnumElement,T extends Class <? extends E>> {
      * Esta clase debe ser unha un enum que implemente EnumElement
      * @return Array con todos os elementos en types
      */
-    public ArrayList <E> setElements(T enumclass) {
+    public ArrayList <E> setElements(Class <? extends E> enumclass) {
         E[] values=(E[])enumclass.getEnumConstants();
         if (values==null) throw new IllegalArgumentException("Is nota a Enum");
         types.clear();
