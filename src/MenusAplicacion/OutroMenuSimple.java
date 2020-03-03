@@ -2,6 +2,7 @@ package MenusAplicacion;
 
 
 import menu.OptionElement;
+import menu.OptionRunner;
 
 /**
  * Outro modo de implementar un menú. Unha única clase se encarga de todo.
@@ -12,12 +13,17 @@ public enum OutroMenuSimple implements OptionElement <OutroMenuSimple> {
     OPCION1("1.- Elixe esta opción",new XestionaMenu()),
     OPCION2("2.- Mellor elixe esta",new XestionaMenu()),
     OPCION3("3.- Esta é a mellor de todas",new XestionaMenu()),
-    SAIR("4.- Saimos do Programa.",null);
+    SAIR("4.- Saimos do Programa.");
     
-    private String title;
-    private OptionElement delegate=null;
+    private final String title;
+    private final OptionRunner delegate;
     
-    private OutroMenuSimple(String title,OptionElement delegate) {
+    private OutroMenuSimple(String title) {
+        this.title=title;
+        this.delegate=null;
+    }
+    
+    private OutroMenuSimple(String title,OptionRunner delegate) {
         this.title=title;
         this.delegate=delegate;
     }
