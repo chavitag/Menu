@@ -7,10 +7,8 @@ import dynamicenum.EnumElement;
  * O procesamento dos elementos do menú produce un Boolean (true saír, false continuar) 
  * e recibe un OptionElement, que sería a opción elexida
  */
-public interface OptionElement <T extends OptionElement> extends EnumElement <Boolean,T> {
+public interface OptionElement <T extends OptionElement> extends EnumElement <Boolean,T>, OptionRunner <T> {
    
-    public Boolean doOption(T op);  // Os OptionElement deben ter un doOption
-
     /**
      * Os OptionElement son enum que deben ter un título que amosar no menú, 
      * Pero tamén poden ser clases que xestionan a opción, nese caso non precisan un título.

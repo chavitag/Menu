@@ -62,11 +62,11 @@ public class Menu extends DynamicEnum <OptionElement> {
         addElements(options);
     }
     
-    public void addOption(String name,String title,OptionElement runner) {
+    public void addOption(String name,String title,OptionRunner runner) {
         OptionElement element=new OptionElement<OptionElement>() {
             private final String _title=title;
             private final String _name=name;
-            private final OptionElement _runner=runner;
+            private final OptionRunner _runner=runner;
             
             @Override
             public String getTitle() {

@@ -2,6 +2,7 @@ package MenuPrincipal;
 
 
 import menu.OptionElement;
+import menu.OptionRunner;
 
 /**
  * Exemplo de Menu.
@@ -31,7 +32,7 @@ public enum MenuPrincipal implements OptionElement <MenuPrincipal> {
     SAIR("4.- Sair");
 
     private final String title;         // Título do menú
-    private final OptionElement option; // Obxecto "Delegado" que levará a cabo o doOption
+    private final OptionRunner option; // Obxecto "Delegado" que levará a cabo o doOption
         
     // Constructor dos Enum definidos arriba (o usa LISTADOFILMS e SAIR)
     private MenuPrincipal(String title) {
@@ -40,7 +41,7 @@ public enum MenuPrincipal implements OptionElement <MenuPrincipal> {
     }    
     
     // Outro constructor (o usan ALTAFILM e CONSULTAFILM)
-    private MenuPrincipal(String title,OptionElement option) {
+    private MenuPrincipal(String title,OptionRunner option) {
         this.title=title;
         this.option=option;
     }
