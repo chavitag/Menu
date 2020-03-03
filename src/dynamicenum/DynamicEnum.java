@@ -31,6 +31,19 @@ public class DynamicEnum <E extends EnumElement> {
     }
     
     /**
+     * Engade un EnumElement que non é realmente membro de un Enum, como membro
+     * do DynamicEnum. 
+     * 
+     * Debería sobrepoñer o método getTitle e name()
+     * @param element - EnumElement a engador
+     * @return - Lista de todos os elementos
+     */
+    public ArrayList <E> addElement(E element) {
+        types.add(element);
+        return types;
+    }
+    
+    /**
      * Engade os elementos do enum T ao ArrayList types eliminando os existentes.
      * 
      * @param enumclass indica de qué clase queremos extraer os elementos. 

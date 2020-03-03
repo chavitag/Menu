@@ -62,6 +62,31 @@ public class Menu extends DynamicEnum <OptionElement> {
         addElements(options);
     }
     
+    public void addOption(String name,String title,OptionElement runner) {
+        OptionElement element=new OptionElement<OptionElement>() {
+            private final String _title=title;
+            private final String _name=name;
+            private final OptionElement _runner=runner;
+            
+            @Override
+            public String getTitle() {
+                return _title;
+            }
+            
+            @Override
+            public String name() {
+                return _name;
+            }
+            
+            @Override
+            public Boolean doOption(OptionElement op) {
+                if (_runner!=null) return _runner.doOption(op); // Si temos delegado executamos o seu doOption
+                return true; // Saír
+            }
+        };
+        types.add(element);
+    }
+    
     /**
      * Visualiza o menú e permite elexir a opción. Se encarga de chamar ao 
      * método doOption do elemento elexido do enum.

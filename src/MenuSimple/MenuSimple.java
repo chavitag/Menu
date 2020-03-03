@@ -13,10 +13,9 @@ import menu.OptionElement;
 public enum MenuSimple implements OptionElement<MenuSimple> {
     OPCIONA("1.- Opcion1"),
     OPCIONB("2.- Opcion2"),
-    OPCIONC("3.- Opcion3"),
-    SAIR("4.- Saír");
+    OPCIONC("3.- Opcion3");
     
-    private String title;
+    private final String title;
     
     private MenuSimple(String title) {
         this.title=title;

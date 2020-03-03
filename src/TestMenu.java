@@ -3,6 +3,7 @@ import MenuSimple.MenuSimple;
 import MenusAplicacion.OutroMenuSimple;
 import MenuPrincipal.MenuPrincipal;
 import menu.Menu;
+import menu.OptionElement;
 
 /**
  * Programa de Demostración do Menu. Como vemos podemos instanciar o Menu
@@ -22,6 +23,15 @@ public class TestMenu {
         
         menu.setTitle("Menu Simple\n===========");
         menu.setOptions(MenuSimple.class);
+
+        menu.addOption("VAYA","4.- Vaya vaya...",new OptionElement<OptionElement>() {
+            @Override
+            public Boolean doOption(OptionElement op) {
+                System.out.println("Juas");
+                return false;
+            }
+        });
+        menu.addOption("SAIR","5.- Saír",null);
         menu.run();
         
         menu.setTitle("Outro Menu Simple\n================");
