@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @param <E> Tipo de Enums a almacenar no ArrayList. Debe ser un enum que implemente EnumElement
  * @param <T> Clase dos enums que permitiremos agregar. ser un Class de un enum que implemente EnumElement 
  */
-public class DynamicEnum <E extends EnumElement,T extends Class <? extends EnumElement>> {
+public class DynamicEnum <E extends EnumElement,T extends Class <? extends E>> {
     protected final ArrayList <E> types=new ArrayList <>();
         
     public DynamicEnum() {  }
