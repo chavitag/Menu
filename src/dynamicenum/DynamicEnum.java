@@ -78,18 +78,7 @@ public class DynamicEnum <E extends EnumElement> {
         }
         throw new IllegalArgumentException("Unknown Element "+name);
     }
-    
-    /**
-     * Executa a funcionalidade do elemento de nome "nome". A existencia duhna
-     * funcionalidade está garantizada pola interface EnumElement
-     * @param name - Nome do elemento a buscar
-     * @param param - Parámetro do método
-     * @return Resultado da execución
-     */
-    public Object doWith(String name,Object param) {
-        return get(name).doWith(param);
-    }
-    
+
     /**
      * Este método PRIVADO engade os EnumElements á Collection types.
      * Si xa existe un elemento co mesmo nome, non se engade.
