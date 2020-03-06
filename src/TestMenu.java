@@ -4,7 +4,7 @@ import MenusAplicacion.OutroMenuSimple;
 import MenuPrincipal.MenuPrincipal;
 import menu.Menu;
 import menu.OptionElement;
-import menu.OptionRunner;
+import dynamicenum.Executable;
 
 /**
  * Programa de Demostración do Menu. Como vemos podemos instanciar o Menu
@@ -25,9 +25,9 @@ public class TestMenu {
         menu.setTitle("Menu Simple\n===========");
         menu.setOptions(MenuSimple.class);
 
-        menu.addOption("VAYA","4.- Vaya vaya...",new OptionRunner<OptionElement>() {
+        menu.addOption("VAYA","4.- Vaya vaya...",new Executable<Boolean,OptionElement>() {
             @Override
-            public Boolean doOption(OptionElement op) {
+            public Boolean exec(OptionElement op) {
                 System.out.println("Juas");
                 return false;
             }

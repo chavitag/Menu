@@ -1,13 +1,14 @@
 package menu;
 
 import dynamicenum.EnumElement;
+import dynamicenum.Executable;
 
 /**
  *
  * O procesamento dos elementos do menú produce un Boolean (true saír, false continuar) 
  * e recibe un OptionElement, que sería a opción elexida
  */
-public interface OptionElement <T extends OptionElement> extends EnumElement <Boolean,T>, OptionRunner <T> {
+public interface OptionElement <T extends OptionElement> extends EnumElement, Executable <Boolean,T> {
    
     /**
      * Os OptionElement son enum que deben ter un título que amosar no menú, 
@@ -18,17 +19,6 @@ public interface OptionElement <T extends OptionElement> extends EnumElement <Bo
      * @return "" - Os enum deben ter unha implementación que devolva o titulo a visualizar, os 
      * xestores non.
      */
-    public default String getTitle() {  
-        return "";
-    }
-    
-    @Override
-    public default String name() {
-        return getTitle();
-    }
-    
-    @Override
-    public default Boolean doWith(T el) {
-        return doOption(el);
-    }
+    public default String getTitle() {  return "";   }
+    public default String name() { return ""; }
 }

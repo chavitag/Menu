@@ -1,8 +1,8 @@
 package MenusAplicacion;
 
 
+import dynamicenum.Executable;
 import menu.OptionElement;
-import menu.OptionRunner;
 
 /**
  * Outro modo de implementar un menú. Unha única clase se encarga de todo.
@@ -16,14 +16,14 @@ public enum OutroMenuSimple implements OptionElement <OutroMenuSimple> {
     SAIR("4.- Saimos do Programa.");
     
     private final String title;
-    private final OptionRunner delegate;
+    private final Executable<Boolean,OutroMenuSimple> delegate;
     
     private OutroMenuSimple(String title) {
         this.title=title;
         this.delegate=null;
     }
     
-    private OutroMenuSimple(String title,OptionRunner delegate) {
+    private OutroMenuSimple(String title,Executable<Boolean,OutroMenuSimple> delegate) {
         this.title=title;
         this.delegate=delegate;
     }
@@ -34,8 +34,8 @@ public enum OutroMenuSimple implements OptionElement <OutroMenuSimple> {
     }
     
     @Override
-    public Boolean doOption(OutroMenuSimple op) {
-        if (delegate!=null) return delegate.doOption(op); // Si temos delegado executamos o seu doOption
+    public Boolean exec(OutroMenuSimple op) {
+        if (delegate!=null) return delegate.exec(op); // Si temos delegado executamos o seu doOption
         return true; // Saír
     }
 }

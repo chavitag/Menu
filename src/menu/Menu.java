@@ -1,6 +1,7 @@
 package menu;
 
 import dynamicenum.DynamicEnum;
+import dynamicenum.Executable;
 import utilidades.Inputs;
 import java.util.List;
 
@@ -62,11 +63,11 @@ public class Menu extends DynamicEnum <OptionElement> {
         addElements(options);
     }
     
-    public void addOption(String name,String title,OptionRunner runner) {
-        OptionElement element=new OptionElement<OptionElement>() {
+    public void addOption(String name,String title,Executable<Boolean,OptionElement> runner) {
+        OptionElement element=new OptionElement <OptionElement> () {
             private final String _title=title;
             private final String _name=name;
-            private final OptionRunner _runner=runner;
+            private final Executable<Boolean,OptionElement> _runner=runner;
             
             @Override
             public String getTitle() {
@@ -79,8 +80,8 @@ public class Menu extends DynamicEnum <OptionElement> {
             }
             
             @Override
-            public Boolean doOption(OptionElement op) {
-                if (_runner!=null) return _runner.doOption(op); // Si temos delegado executamos o seu doOption
+            public Boolean exec(OptionElement op) {
+                if (_runner!=null) return _runner.exec(op); // Si temos delegado executamos o seu doOption
                 return true; // Saír
             }
         };
@@ -99,8 +100,8 @@ public class Menu extends DynamicEnum <OptionElement> {
      */
     public void run() {
         List <OptionElement> options=this.getEnums();
-        boolean end=false;
-        OptionElement choosed;
+        Boolean end=false;
+        OptionElement <OptionElement> choosed;
         int op;
         
         do {
@@ -112,7 +113,7 @@ public class Menu extends DynamicEnum <OptionElement> {
                 op=Inputs.getInt("Elixe Opcion: ", 1, options.size())-1;
                 System.out.println();
                 choosed=options.get(op);
-                end=choosed.doOption(choosed);
+                end=choosed.exec(choosed);
                 System.out.println();
             } catch (Exception ex) {
                 System.out.println("ERRO: "+ex.getMessage());

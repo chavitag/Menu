@@ -1,19 +1,18 @@
 package MenuPrincipal;
 
 
+import dynamicenum.Executable;
 import menu.OptionElement;
-import menu.OptionRunner;
 
 /**
  * Exemplo de Menu.
  * Como se pode ver, se pode programar "en liña" o comportamento da opción
- * ou delegar nun obxecto de tipo OptionElement que se encargue.
- * Neste caso, as opcións 1 e 2 utilizan o método doOption dos obxectos de tipo
- * OpcionGardar e OpcionConsultar respectivamente, como non teñen unha implementación
- * propia de doOption, utilizan a implementación definida en MenuPrincipal, que se
- * encarga de executar o método doOption do obxecto almacenado no atributo "option".
- * A opción 3 ten programado o comportamento directamente no método  doOption. 
- * A opción 4 executa o doOption definida en MenuPrincipal, pero como o atributo "option"
+ * ou delegar nun obxecto de tipo Executable que se encargue.
+ * Neste caso, as opcións 1 e 2 utilizan o método "exec" dos obxectos de tipo
+ * OpcionGardar e OpcionConsultar (Executable) respectivamente.
+ * A opción 3 ten programado o comportamento directamente no método  "ecec", xa
+ * que os OptionElement extenden Executable.
+ * A opción 4 executa o "exec" definido en MenuPrincipal, pero como o atributo "option"
  * é null, devolve true finalizando o bucle do menú.
  * 
  * Este xeito de implementar menús é útil si a implementación das opcións é complexa, xa  
@@ -24,7 +23,7 @@ public enum MenuPrincipal implements OptionElement <MenuPrincipal> {
     CONSULTAFILM("2.- Consultar Film",new OpcionConsultar()),
     LISTADOFILMS("3.- Listar Films") {
         @Override
-        public Boolean doOption(MenuPrincipal opcion) {
+        public Boolean exec(MenuPrincipal opcion) {
             System.out.println("Opcion Listar");
             return false;
         }
@@ -32,7 +31,7 @@ public enum MenuPrincipal implements OptionElement <MenuPrincipal> {
     SAIR("4.- Sair");
 
     private final String title;         // Título do menú
-    private final OptionRunner option; // Obxecto "Delegado" que levará a cabo o doOption
+    private final Executable<Boolean,MenuPrincipal> option; // Obxecto "Delegado" que levará a cabo o doOption
         
     // Constructor dos Enum definidos arriba (o usa LISTADOFILMS e SAIR)
     private MenuPrincipal(String title) {
@@ -41,7 +40,7 @@ public enum MenuPrincipal implements OptionElement <MenuPrincipal> {
     }    
     
     // Outro constructor (o usan ALTAFILM e CONSULTAFILM)
-    private MenuPrincipal(String title,OptionRunner option) {
+    private MenuPrincipal(String title,Executable<Boolean,MenuPrincipal> option) {
         this.title=title;
         this.option=option;
     }
@@ -59,8 +58,8 @@ public enum MenuPrincipal implements OptionElement <MenuPrincipal> {
      * devolvemos true, que provoca a saída do menú
      */
     @Override
-    public Boolean doOption(MenuPrincipal op) {
-        if (option!=null) return option.doOption(op); // Si temos delegado executamos o seu doOption
+    public Boolean exec(MenuPrincipal op) {
+        if (option!=null) return option.exec(op); // Si temos delegado executamos o seu doOption
         return true; // Saír
     }
 }

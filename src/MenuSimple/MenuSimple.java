@@ -6,11 +6,11 @@ import menu.OptionElement;
 /**
  * Outro xeito de implementar un menú.
  * En lugar de instalar obxectos para xestionar cada opción, as xestionamos
- * "ao modo clásico", cun switch en doOption. So é boa idea si as opcións son
- * moi sinxelas, e incluso en ese caso, sería mellor facer un doOption dentro de cada
+ * "ao modo clásico", cun switch en "exec". So é boa idea si as opcións son
+ * moi sinxelas, e incluso en ese caso, sería mellor facer un "exec" dentro de cada
  * opción do menú.
  */
-public enum MenuSimple implements OptionElement<MenuSimple> {
+public enum MenuSimple implements OptionElement <MenuSimple> {
     OPCIONA("1.- Opcion1"),
     OPCIONB("2.- Opcion2"),
     OPCIONC("3.- Opcion3");
@@ -27,7 +27,7 @@ public enum MenuSimple implements OptionElement<MenuSimple> {
     }
     
     @Override
-    public Boolean doOption(MenuSimple op) {
+    public Boolean exec(MenuSimple op) {
         switch(op) {
             case OPCIONA: 
                 System.out.println("Son a Opción A");

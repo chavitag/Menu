@@ -1,15 +1,15 @@
 package MenusAplicacion;
 
 
-import menu.OptionRunner;
+import dynamicenum.Executable;
 
 /**
  * Clase que se encarga de xestionar OutroMenuSimple ao completo
  */
-class XestionaMenu implements OptionRunner <OutroMenuSimple> {
+class XestionaMenu implements Executable <Boolean,OutroMenuSimple> {
 
     @Override
-    public Boolean doOption(OutroMenuSimple op) {
+    public Boolean exec(OutroMenuSimple op) {
         switch(op) {
             case OPCION1:
                 System.out.println("Son a primeira opción");
